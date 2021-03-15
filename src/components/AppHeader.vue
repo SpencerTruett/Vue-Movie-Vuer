@@ -8,6 +8,8 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   data() {
     return {
@@ -15,8 +17,11 @@ export default {
     };
   },
   methods: {
+    ...mapActions(["searchMovies"]),
+
     handleSubmit() {
       console.log("Search for:", this.query);
+      this.searchMovies(this.query);
     }
   }
 };

@@ -1,11 +1,10 @@
 <template>
   <v-app>
-    <v-app-bar app color="red darken-1" dark></v-app-bar>
+    <v-app-bar app color="red darken-1" dark>
+      <AppHeader />
+    </v-app-bar>
 
     <v-main>
-      <v-container>
-        <AppHeader />
-      </v-container>
       <v-container>
         <search-results />
       </v-container>
