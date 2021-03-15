@@ -55,5 +55,13 @@ export default new Vuex.Store({
       commit("setMovieReviews", reviewData.results);
     }
   },
-  modules: {}
+  modules: {},
+  getters: {
+    viewableMovies(state) {
+      if (!state.searchResults.results) {
+        return [];
+      }
+      return state.searchResults.results.filter(movie => !!movie.poster_path);
+    }
+  }
 });
