@@ -9,7 +9,13 @@
         <v-list-item-content>
           <v-list-item-title>{{ review.author }}</v-list-item-title>
           <v-list-item-subtitle>{{ review.created_at }}</v-list-item-subtitle>
-          <div class="mt-2">{{ review.content }}</div>
+          <!-- <div class="mt-2"></div> -->
+          <v-expansion-panels>
+            <v-expansion-panel>
+              <v-expansion-panel-header>View Review</v-expansion-panel-header>
+              <v-expansion-panel-content>{{ review.content }}</v-expansion-panel-content>
+            </v-expansion-panel>
+          </v-expansion-panels>
         </v-list-item-content>
       </v-list-item>
     </v-list>
