@@ -2,16 +2,14 @@ import Vue from "vue";
 import Vuex from "vuex";
 
 
-import { FAKE_SEARCH_RESULTS, FAKE_MOVIE_DETAILS } from "./FAKE_DATA";
-
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    searchTerm: "home alone",
-    searchResults: FAKE_SEARCH_RESULTS,
-    movieDetails: FAKE_MOVIE_DETAILS,
-    reviews: [],
+    searchTerm: "",
+    searchResults: [],
+    movieDetails: null,
+    reviews: []
   },
   mutations: {
     setSearchTerm(state, payload) {
@@ -37,6 +35,8 @@ export default new Vuex.Store({
       const data = await res.json();
       commit("setSearchTerm", payload);
       commit("setSearchResults", data);
+      commit("setMovieDetails", null);
+      commit("setMovieReviews", []);
     },
     async selectMovie({ commit }, movie) {
       const apiBaseUrl = "https://api.themoviedb.org/3";
