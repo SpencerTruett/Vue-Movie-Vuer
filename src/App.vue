@@ -1,8 +1,21 @@
-<template></template>
+<template>
+  <v-app>
+    <v-app-bar app color="red darken-1" dark></v-app-bar>
+
+    <v-main>
+      <v-container>
+        <search-results />
+      </v-container>
+    </v-main>
+  </v-app>
+</template>
 
 <script>
-export default {};
-</script>
+import SearchResults from "./components/SearchResults";
 
-<style>
-</style>
+export default {
+  components: {
+    SearchResults
+  }
+};
+</script>
